@@ -49,12 +49,12 @@ public class ResponseHeaders extends HttpResponseHeaders {
 
     private FluentCaseInsensitiveStringsMap computerHeaders() {
         FluentCaseInsensitiveStringsMap h = new FluentCaseInsensitiveStringsMap();
-        for (Map.Entry<String, String> header: response.getHeaders()) {
+        for (Map.Entry<String, String> header: response.headers()) {
            h.add(header.getKey(), header.getValue());
         }
 
         if (trailingHeaders != null) {
-            for (Map.Entry<String, String> header:  trailingHeaders.getHeaders()) {
+            for (Map.Entry<String, String> header:  trailingHeaders.trailingHeaders()) {
                 h.add(header.getKey(), header.getValue());
             }
         }
